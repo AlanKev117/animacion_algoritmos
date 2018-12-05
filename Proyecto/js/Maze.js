@@ -100,7 +100,7 @@ class Maze {
                 }
                 //Ambos algoritmos terminados.
                 else {
-                    messageDiv.html("en 3");
+                    messageDiv.html("Ruta econtrada.");
                     grid.markOptimusPath(endCell);
                 }
             } 
