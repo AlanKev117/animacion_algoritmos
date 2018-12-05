@@ -27,19 +27,25 @@
                   Es un algoritmo de búsqueda utilizada para recorrer todos los nodos de un grafo o árbol de 
                   manera ordenada, pero no uniforme. Los niveles de cada nodo no son importantes. 
                   Este consiste en ir expandiendo cada uno de los nodos, de forma recurrente, en un camino en concreto.
-                  Cuando ya no hay más camino, regresa, en donde se quedo por explorar, repite el mismo proceso.
+                  <br><br>
+                  Cuando ya no hay más camino, regresa, en donde se quedo por explorar. Repite el mismo proceso,
+                  hasta 
                 </p>
                 <b>Ejemplo:</b>
-                div
               </div>
-              <div id="tutorialCanvasBFS">
+              <div id="tutorialCanvasBFS" hidden>
                 <h5>BFS (Breadth First Search)</h5>
                 <p>
-                  Este algoritmo de búsqueda se utiliza para lo mismo que el DFS, 
-                  pero lo hace de diferente forma, ya que en este si importa los niveles de los nodos.
-                  Este consiste, empezando desde la raíz, en explorar todos los vecinos de los nodos por niveles,
-                  hasta recorrer todo el árbol o grafo.
+                  El algoritmo BFS nos sirve para encontrar el camino más corto entre dos nodos de un grafo
+                  no ponderado. Lo hace por niveles del grafo o del árbol, ya que para cada nodo del grafo se 
+                  pregunta si alguno de sus hijos es el nodo por el que buscamos; si no lo es, se agrega 
+                  a una fila que simboliza los nodos cuyos hijos debemos revisar hasta que alguno sea el buscado.<br><br>
+
+                  La fila (queue) nos garantiza que accedemos al siguiente nivel del grafo (desde el nodo en el que
+                  empezamos). El algoritmo termina cuando se encuentra el nodo buscado.
                 </p>
+
+                <b>Ejemplo:</b>
               </div>
             </div>
             <div class="modal-footer">

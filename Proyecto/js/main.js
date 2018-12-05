@@ -35,7 +35,7 @@ $("#btn-start").click(
             alertMsg += "Casilla final no válida para el tamaño del laberinto elegido.\n";
         }
 
-        if (alertMessage.lenght > 0) {
+        if (alertMsg.length > 0) {
             alert("Error en los datos. Revise lo siguiente: \n" + alertMsg);
             return;
         }
