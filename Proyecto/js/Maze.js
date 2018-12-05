@@ -72,13 +72,14 @@ class Maze {
                 }
                 //Solución del laberinto (BFS)
                 else if (!mazeSolved) {
+                    messageDiv.html(`El laberinto ha sido generado.<br>`);
                     currentCell = queue.shift();
                     if (!currentCell || currentCell == endCell) {
                         mazeSolved = true;
                         messageDiv.append(`Hemos llegado a la casilla destino.`);
                     }
                     else {
-                        messageDiv.html(`Somos la casilla (${currentCell.i + 1}, ${currentCell.j + 1}), la siguiente de la fila.`);
+                        messageDiv.append(`Somos la casilla roja (${currentCell.i + 1}, ${currentCell.j + 1}), la siguiente de la fila.`);
                         currentCell.mark(p5);
                         let top = grid.topOf(currentCell);
                         let right = grid.rightOf(currentCell);

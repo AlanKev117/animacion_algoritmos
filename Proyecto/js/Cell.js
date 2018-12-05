@@ -53,7 +53,7 @@ class Cell {
 
 		if (this.visitedBFS) {
 			p5.noStroke();
-			p5.fill(0, 139, 204, 100);
+			p5.fill(0, 255, 0, 100);
 			//Se dibuja un rectángulo inscrito en la celda
 			p5.rect(x, y, this.sideLength, this.sideLength);
 		}
