@@ -4,13 +4,107 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Algoritmos</title>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="./js/p5.min.js"></script>
-    <script src="./js/Cell.js"></script>
-    <script src="./js/Grid.js"></script>
-    <script src="./js/sketch.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/main.css">
   </head>
   <body>
-    <!--AGREGAR BOTONES Y ELEMENTOS DE ENTRADA-->
+    <!--MODAL TUTORIAL-->
+    <div class="modal fade" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Tutorial</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div id="tutorialCanvasDFS">
+                <h5>DFS (Depth First Search)</h5>
+                <p>
+                  Es un algoritmo de búsqueda utilizada para recorrer todos los nodos de un grafo o árbol de 
+                  manera ordenada, pero no uniforme. Los niveles de cada nodo no son importantes. 
+                  Este consiste en ir expandiendo cada uno de los nodos, de forma recurrente, en un camino en concreto.
+                  Cuando ya no hay más camino, regresa, en donde se quedo por explorar, repite el mismo proceso.
+                </p>
+              </div>
+              <div id="tutorialCanvasBFS">
+                  <h5>BFS (Breadth First Search)</h5>
+                  <p>
+                    Este algoritmo de búsqueda se utiliza para lo mismo que el DFS, 
+                    pero lo hace de diferente forma, ya que en este si importa los niveles de los nodos.
+                    Este consiste, empezando desde la raíz, en explorar todos los vecinos de los nodos por niveles,
+                    hasta recorrer todo el árbol o grafo.
+                  </p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button id="btn-goDFS" class="option">&#8672;</button>
+              <button id="btn-goBFS" class="option">&#8674;</button>
+              <button class="option btn-generic" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!--CONTENIDO DEL SITIO-->
+    <h1>Visualización de DFS y BFS</h1>
+    <h3>Generación aleatoria de un laberinto y su solución</h3>
+    <div class="navigation">
+      <div class="row group-frame">
+        <div class="col-md-2">
+          <label for="mazeRows"><b>Filas</b></label>
+          <input id="mazeRows" type="number" min="2" max="30" required value="4"/>
+        </div>
+        <div class="col-md-2">
+          <label for="mazeCols"><b>Columnas</b></label>
+          <input id="mazeCols" type="number" min="2" max="30" required value="4"/>
+        </div>
+        <div class="col-md-4">
+          <div class="pseudo-label"><b>Casilla inicial (x, y)</b></div>
+          <input id="xBegin" class="x-or-y" type="number" min="0" max="30" placeholder="X" required value="0"/>
+          <input id="yBegin" class="x-or-y" type="number" min="0" max="30" placeholder="Y" required value="0"/>
+        </div>
+        <div class="col-md-4">
+          <div class="pseudo-label"><b>Casilla final (x, y)</b></div>
+          <input id="xEnd" class="x-or-y" type="number" min="0" max="30" placeholder="X" required value="3"/>
+          <input id="yEnd" class="x-or-y" type="number" min="0" max="30" placeholder="Y" required value="3"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="option btn-generic" data-toggle="modal" data-target="#tutorialModal">¿Qué estoy viendo?</button>
+        </div>
+        <div class="col-md-6">
+          <button class="option btn-generic" id="btn-start" data-toggle="modal">Iniciar algoritmo</button>
+        </div>
+        <div class="col-md-6">
+          <label for="speed">Velocidad</label>
+          <input id="speed" type="range" min="1" max="20" required/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="canvas-container"></div>
+      </div>
+      <div class="col-md-6">
+        <div id="message"></div>
+      </div>
+    </div>
+      
+      <!--Dependencias JS-->
+    <script src="./js/p5.min.js"></script>
+    <script src="./js/p5.dom.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/Cell.js"></script>
+    <script src="./js/Grid.js"></script>
+    <script src="./js/Maze.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
