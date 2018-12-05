@@ -8,7 +8,7 @@ class Maze {
             //Instancia una cuadrícula para el laberinto.
             var grid = new Grid([], rows, cols);
             
-            //Variables para DFS.
+            //Variables para DFS.w
             var currentCell;
             var stack = [];
             var mazeDone = false;
@@ -45,14 +45,15 @@ class Maze {
             
             p5.draw = function () {
                 //Visualización del estado del laberinto.
-                p5.frameRate(parseInt(fpsSilder.val()));
+                p5.frameRate(parseFloat(fpsSilder.val()) / 100);
                 p5.background(0);
                 grid.displayGrid(p5);
                 currentCell.mark(p5);
                 messageDiv.html("");
                 //Generación del laberinto (DFS).
                 if (!mazeDone) {
-                    messageDiv.html(`Somos la casilla roja (${currentCell.i + 1}, ${currentCell.j + 1}).<br>`);
+                    messageDiv.html("Generando laberinto.<br>");
+                    messageDiv.append(`Somos la casilla roja (${currentCell.i + 1}, ${currentCell.j + 1}).<br>`);
                     let nextCell = grid.getUnvisitedAdjacentOf(currentCell);
                     if (nextCell) {
                         messageDiv.append(`Tenemos junto a (${nextCell.i + 1}, ${nextCell.j + 1}) sin visitar!, lo metemos en la pila, <br>`);
@@ -90,7 +91,7 @@ class Maze {
                         for (let i = 0; i < adjacents.length; i++) {
                             if (adjacents[i] && !visitedBFS.includes(adjacents[i]) && !walls[i]) {
                                 messageDiv.append(`Ponemos al vecino (${adjacents[i].i + 1}, ${adjacents[i].j + 1}) en fila <br>`);
-                                messageDiv.append(`y lo marcamos como visitado.`);
+                                messageDiv.append(`y lo marcamos como visitado (azul fuerte).`);
                                 adjacents[i].parent = currentCell;
                                 queue.push(adjacents[i]);
                                 visitedBFS.push(adjacents[i]);
@@ -101,7 +102,8 @@ class Maze {
                 }
                 //Ambos algoritmos terminados.
                 else {
-                    messageDiv.html("Ruta econtrada.");
+                    messageDiv.html("Ruta econtrada. Se muestra en color verde claro.<br>");
+                    messageDiv.append("Las casillas visitadas están pintadas en verde oscuro.");
                     grid.markOptimusPath(endCell);
                 }
             } 
