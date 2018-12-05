@@ -52,12 +52,12 @@ class Maze {
                 messageDiv.html("");
                 //Generación del laberinto (DFS).
                 if (!mazeDone) {
-                    messageDiv.html(`Somos la casilla roja (${currentCell.i}, ${currentCell.j}).<br>`);
+                    messageDiv.html(`Somos la casilla roja (${currentCell.i + 1}, ${currentCell.j + 1}).<br>`);
                     let nextCell = grid.getUnvisitedAdjacentOf(currentCell);
                     if (nextCell) {
-                        messageDiv.append(`Tenemos junto a (${nextCell.i}, ${nextCell.j}) sin visitar!, lo metemos en la pila, <br>`);
+                        messageDiv.append(`Tenemos junto a (${nextCell.i + 1}, ${nextCell.j + 1}) sin visitar!, lo metemos en la pila, <br>`);
                         stack.push(currentCell);
-                        messageDiv.append(`removemos la pared entre nosotros y (${nextCell.i}, ${nextCell.j}) <br>`);
+                        messageDiv.append(`removemos la pared entre nosotros y (${nextCell.i + 1}, ${nextCell.j + 1}) <br>`);
                         grid.removeWallBetween(currentCell, nextCell);
                         messageDiv.append("y nos desplazamos a la nueva casilla.");
                         currentCell = nextCell;
@@ -66,7 +66,7 @@ class Maze {
                     else if (stack.length > 0) {
                         messageDiv.append("¡No tenemos vecinos sin visitar!<br>");
                         currentCell = stack.pop();
-                        messageDiv.append(`Ahora quitamos de la pila a (${currentCell.i}, ${currentCell.j}) y nos movemos ahí.<br>`);
+                        messageDiv.append(`Ahora quitamos de la pila a (${currentCell.i + 1}, ${currentCell.j + 1}) y nos movemos ahí.<br>`);
                     }
                     mazeDone = currentCell == grid.cells[0];
                 }
@@ -78,7 +78,7 @@ class Maze {
                         messageDiv.append(`Hemos llegado a la casilla destino.`);
                     }
                     else {
-                        messageDiv.html(`Somos la casilla (${currentCell.i}, ${currentCell.j}), la siguiente de la fila.`);
+                        messageDiv.html(`Somos la casilla (${currentCell.i + 1}, ${currentCell.j + 1}), la siguiente de la fila.`);
                         currentCell.mark(p5);
                         let top = grid.topOf(currentCell);
                         let right = grid.rightOf(currentCell);
@@ -88,7 +88,7 @@ class Maze {
                         let walls = [currentCell.topWall, currentCell.rightWall, currentCell.bottomWall, currentCell.leftWall];
                         for (let i = 0; i < adjacents.length; i++) {
                             if (adjacents[i] && !visitedBFS.includes(adjacents[i]) && !walls[i]) {
-                                messageDiv.append(`Ponemos al vecino (${adjacents[i].i}, ${adjacents[i].j}) en fila <br>`);
+                                messageDiv.append(`Ponemos al vecino (${adjacents[i].i + 1}, ${adjacents[i].j + 1}) en fila <br>`);
                                 messageDiv.append(`y lo marcamos como visitado.`);
                                 adjacents[i].parent = currentCell;
                                 queue.push(adjacents[i]);
