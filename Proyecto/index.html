@@ -28,10 +28,85 @@
                   manera ordenada, pero no uniforme. Los niveles de cada nodo no son importantes. 
                   Este consiste en ir expandiendo cada uno de los nodos, de forma recurrente, en un camino en concreto.
                   <br><br>
-                  Cuando ya no hay más camino, regresa, en donde se quedo por explorar. Repite el mismo proceso,
-                  hasta 
+                  Cuando ya no hay más camino, regresa, en donde se quedo por explorar. Repite el mismo proceso hasta que
+                  ya no hay elementos que explorar.
                 </p>
-                <b>Ejemplo:</b><br>
+                <br>
+                <b>Pasos DFS:</b><br>
+                <ul>
+                  <li>
+                  Hacemos el nodo inicial como el actual marcándolo
+                  <img src="DFS/DFS1.PNG">
+                  </li>
+                  <li>Mientras existan celdas sin visitar hacemos:</li>
+                    <ul>
+                      <li>Si la celda actual tiene algún vecino que no ha sido visitado:</li>
+                        <ul>
+                          <li>
+                            Escogemos aleatoriamente uno de los vecinos sin visitar
+                          </li>
+                        </ul>
+                    </ul>
+                </ul>
+                <img src="DFS/DFS2.PNG">
+                <ul>
+                  <ul>
+                    <ul>
+                      <li>
+                        Agregamos la celda actual en una pila
+                      </li>
+                    </ul>
+                  </ul>
+                </ul>
+                <img src="DFS/DFS3.PNG">
+                <ul>
+                  <ul>
+                    <ul>
+                      <li>
+                        Removemos la pared entre la celda actual y el vecino que se selecciono
+                      </li>
+                    </ul>
+                  </ul>
+                </ul>
+                <img src="DFS/DFS4.PNG">
+                <ul>
+                  <ul>
+                    <ul>
+                      <li>
+                        Cambiamos la posición de la celda actual al vecino seleccionado, y lo marcamos como visitado
+                      </li>
+                    </ul>
+                  </ul>
+                </ul>
+                <img src="DFS/DFS5.PNG">
+                <p>Así va a seguir hasta que se cumpla el siguiente caso</p>
+                <ul>
+                  <ul>
+                    <li>
+                      Si la pila no está vacía:
+                      <ul>
+                        <li>
+                          Sacamos el ultimo valor agregado a la pila y lo hacemos la celda actual
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </ul>
+                <img src="DFS/DFS6.PNG">
+                <ul>
+                    <ul>
+                        <ul>
+                          <li>
+                            Si en el camino se encuentra un vecino sin visitar, se hacen los pasos ya explicados
+                          </li>
+                        </ul>
+                    </ul>
+                    <li>
+                        Al final, termina cuando vuelve a la 1er celda y ya no hay mas elementos en la pila
+                    </li>
+                </ul>
+                <img src="DFS/DFS7.PNG">
+                <b>Ejemplo:</b>
                 <video width="400" height="300" controls>
                   <source src="DFS.mp4" type="video/mp4">
                 </video>
@@ -47,8 +122,39 @@
                   La fila (queue) nos garantiza que accedemos al siguiente nivel del grafo (desde el nodo en el que
                   empezamos). El algoritmo termina cuando se encuentra el nodo buscado.
                 </p>
-
-                <b>Ejemplo:</b><br>
+                <br>
+                <b>Pasos BFS:</b><br>
+                <p>
+                  Para este algortimo nos dan como datos la celda inicial y la celda objetivo, para esto ya tenemos 
+                  el laberinto generado y con estos datos se realiza lo siguiente: 
+                </p>
+                <ul>
+                  <li>
+                      Empezamos recorriendo los vecinos de la celda inicial
+                  </li>
+                </ul>
+                <img src="BFS/BFS1.PNG">
+                <ul>
+                  <li>
+                      Los vecinos los vamos agregando a una fila y se marca como visitado
+                  </li>
+                </ul>
+                <img src="BFS/BFS2.PNG">
+                <ul>
+                  <li>
+                      Si existe una separación, estos caminos se van recorriendo al mismo tiempo
+                  </li>
+                </ul>
+                <img src="BFS/BFS3.PNG">
+                <ul>
+                  <li>
+                      Cuando se llega a la celda objetivo, se marca el camino para llegar a este y las celdas que se visitaron
+                  </li>
+                </ul>
+                <img src="BFS/BFS4.PNG">
+                <img src="BFS/BFS5.PNG">
+                <img src="BFS/BFS6.PNG">
+                <b>Ejemplo:</b>
                 <video width="400" height="300" controls>
                   <source src="BFS.mp4" type="video/mp4">
                 </video>

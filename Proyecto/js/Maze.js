@@ -80,7 +80,7 @@ class Maze {
                         messageDiv.append(`Hemos llegado a la casilla destino.`);
                     }
                     else {
-                        messageDiv.append(`Somos la casilla roja (${currentCell.i + 1}, ${currentCell.j + 1}), la siguiente de la fila.`);
+                        messageDiv.append(`Somos la casilla cafe (${currentCell.i + 1}, ${currentCell.j + 1}), la siguiente de la fila.`);
                         currentCell.mark(p5);
                         let top = grid.topOf(currentCell);
                         let right = grid.rightOf(currentCell);
@@ -91,7 +91,7 @@ class Maze {
                         for (let i = 0; i < adjacents.length; i++) {
                             if (adjacents[i] && !visitedBFS.includes(adjacents[i]) && !walls[i]) {
                                 messageDiv.append(`Ponemos al vecino (${adjacents[i].i + 1}, ${adjacents[i].j + 1}) en fila <br>`);
-                                messageDiv.append(`y lo marcamos como visitado (azul fuerte).`);
+                                messageDiv.append(`y lo marcamos como visitado (verde).`);
                                 adjacents[i].parent = currentCell;
                                 queue.push(adjacents[i]);
                                 visitedBFS.push(adjacents[i]);

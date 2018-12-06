@@ -9,6 +9,18 @@ body
     margin: 0%;
 }
 
+img
+{
+    display: block;
+    margin: auto;
+}
+
+video
+{
+    display: block;
+    margin: auto;
+}
+
 h1,
 h3
 {
